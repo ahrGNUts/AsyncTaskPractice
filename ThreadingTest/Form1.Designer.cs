@@ -86,7 +86,7 @@
             this.btnStartThread1.TabIndex = 4;
             this.btnStartThread1.Text = "Start Thread 1";
             this.btnStartThread1.UseVisualStyleBackColor = true;
-            this.btnStartThread1.Click += new System.EventHandler(this.btnStartThread1_Click);
+            this.btnStartThread1.Click += new System.EventHandler(this.btnStartThread_Click);
             // 
             // btnStartThread2
             // 
@@ -96,7 +96,7 @@
             this.btnStartThread2.TabIndex = 5;
             this.btnStartThread2.Text = "Start Thread 2";
             this.btnStartThread2.UseVisualStyleBackColor = true;
-            this.btnStartThread2.Click += new System.EventHandler(this.btnStartThread2_Click);
+            this.btnStartThread2.Click += new System.EventHandler(this.btnStartThread_Click);
             // 
             // btnStartThread3
             // 
@@ -106,7 +106,7 @@
             this.btnStartThread3.TabIndex = 6;
             this.btnStartThread3.Text = "Start Thread 3";
             this.btnStartThread3.UseVisualStyleBackColor = true;
-            this.btnStartThread3.Click += new System.EventHandler(this.btnStartThread3_Click);
+            this.btnStartThread3.Click += new System.EventHandler(this.btnStartThread_Click);
             // 
             // btnStartThread4
             // 
@@ -116,7 +116,7 @@
             this.btnStartThread4.TabIndex = 7;
             this.btnStartThread4.Text = "Start Thread 4";
             this.btnStartThread4.UseVisualStyleBackColor = true;
-            this.btnStartThread4.Click += new System.EventHandler(this.btnStartThread4_Click);
+            this.btnStartThread4.Click += new System.EventHandler(this.btnStartThread_Click);
             // 
             // btnStopThread1
             // 
@@ -126,7 +126,7 @@
             this.btnStopThread1.TabIndex = 8;
             this.btnStopThread1.Text = "Stop Thread 1";
             this.btnStopThread1.UseVisualStyleBackColor = true;
-            this.btnStopThread1.Click += new System.EventHandler(this.btnStopThread1_Click);
+            this.btnStopThread1.Click += new System.EventHandler(this.btnStopThread_Click);
             // 
             // btnStopThread2
             // 
@@ -136,7 +136,7 @@
             this.btnStopThread2.TabIndex = 9;
             this.btnStopThread2.Text = "Stop Thread 2";
             this.btnStopThread2.UseVisualStyleBackColor = true;
-            this.btnStopThread2.Click += new System.EventHandler(this.btnStopThread2_Click);
+            this.btnStopThread2.Click += new System.EventHandler(this.btnStopThread_Click);
             // 
             // btnStopThread3
             // 
@@ -146,7 +146,7 @@
             this.btnStopThread3.TabIndex = 10;
             this.btnStopThread3.Text = "Stop Thread 3";
             this.btnStopThread3.UseVisualStyleBackColor = true;
-            this.btnStopThread3.Click += new System.EventHandler(this.btnStopThread3_Click);
+            this.btnStopThread3.Click += new System.EventHandler(this.btnStopThread_Click);
             // 
             // btnStopThread4
             // 
@@ -156,7 +156,7 @@
             this.btnStopThread4.TabIndex = 11;
             this.btnStopThread4.Text = "Stop Thread 4";
             this.btnStopThread4.UseVisualStyleBackColor = true;
-            this.btnStopThread4.Click += new System.EventHandler(this.btnStopThread4_Click);
+            this.btnStopThread4.Click += new System.EventHandler(this.btnStopThread_Click);
             // 
             // backgroundWorker1
             // 
