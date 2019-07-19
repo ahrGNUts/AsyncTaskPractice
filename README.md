@@ -9,5 +9,5 @@ update the text on their own specific textareas. Background workers can be pause
 and restarted as needed.
 
 ## TODO
-- implement remaining button event handlers
-- generalize event handlers (since their code is very similar with the exception of the updated textareas)
+- <s>implement remaining button event handlers</s>
+- generalize event handlers (since a lot is repeated)

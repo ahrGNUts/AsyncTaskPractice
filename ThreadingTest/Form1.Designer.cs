@@ -42,6 +42,8 @@
             this.btnStopThread4 = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
+            this.backgroundWorker3 = new System.ComponentModel.BackgroundWorker();
+            this.backgroundWorker4 = new System.ComponentModel.BackgroundWorker();
             this.SuspendLayout();
             // 
             // txtThread1
@@ -104,6 +106,7 @@
             this.btnStartThread3.TabIndex = 6;
             this.btnStartThread3.Text = "Start Thread 3";
             this.btnStartThread3.UseVisualStyleBackColor = true;
+            this.btnStartThread3.Click += new System.EventHandler(this.btnStartThread3_Click);
             // 
             // btnStartThread4
             // 
@@ -113,6 +116,7 @@
             this.btnStartThread4.TabIndex = 7;
             this.btnStartThread4.Text = "Start Thread 4";
             this.btnStartThread4.UseVisualStyleBackColor = true;
+            this.btnStartThread4.Click += new System.EventHandler(this.btnStartThread4_Click);
             // 
             // btnStopThread1
             // 
@@ -142,6 +146,7 @@
             this.btnStopThread3.TabIndex = 10;
             this.btnStopThread3.Text = "Stop Thread 3";
             this.btnStopThread3.UseVisualStyleBackColor = true;
+            this.btnStopThread3.Click += new System.EventHandler(this.btnStopThread3_Click);
             // 
             // btnStopThread4
             // 
@@ -151,6 +156,7 @@
             this.btnStopThread4.TabIndex = 11;
             this.btnStopThread4.Text = "Stop Thread 4";
             this.btnStopThread4.UseVisualStyleBackColor = true;
+            this.btnStopThread4.Click += new System.EventHandler(this.btnStopThread4_Click);
             // 
             // backgroundWorker1
             // 
@@ -165,6 +171,20 @@
             this.backgroundWorker2.WorkerSupportsCancellation = true;
             this.backgroundWorker2.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker2_DoWork);
             this.backgroundWorker2.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker2_ProgressChanged);
+            // 
+            // backgroundWorker3
+            // 
+            this.backgroundWorker3.WorkerReportsProgress = true;
+            this.backgroundWorker3.WorkerSupportsCancellation = true;
+            this.backgroundWorker3.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker3_DoWork);
+            this.backgroundWorker3.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker3_ProgressChanged);
+            // 
+            // backgroundWorker4
+            // 
+            this.backgroundWorker4.WorkerReportsProgress = true;
+            this.backgroundWorker4.WorkerSupportsCancellation = true;
+            this.backgroundWorker4.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker4_DoWork);
+            this.backgroundWorker4.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker4_ProgressChanged);
             // 
             // frmMain
             // 
@@ -206,6 +226,8 @@
         private System.Windows.Forms.Button btnStopThread4;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.ComponentModel.BackgroundWorker backgroundWorker2;
+        private System.ComponentModel.BackgroundWorker backgroundWorker3;
+        private System.ComponentModel.BackgroundWorker backgroundWorker4;
     }
 }
 

@@ -91,5 +91,79 @@ namespace ThreadingTest
         {
             txtThread2.Text = e.ProgressPercentage.ToString();
         }
+
+        private void btnStartThread3_Click(object sender, EventArgs e)
+        {
+            if (!backgroundWorker3.IsBusy)
+            {
+                // Start the asynchronous operation.
+                backgroundWorker3.RunWorkerAsync();
+            }
+        }
+
+        private void btnStopThread3_Click(object sender, EventArgs e)
+        {
+            if (backgroundWorker3.WorkerSupportsCancellation)
+            {
+                // Cancel the asynchronous operation.
+                backgroundWorker3.CancelAsync();
+            }
+        }
+
+        private void backgroundWorker3_DoWork(object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker worker = sender as BackgroundWorker;
+            int content;
+
+            while (!worker.CancellationPending)
+            {
+                content = Convert.ToInt32(txtThread3.Text);
+                content++;
+                worker.ReportProgress(content);
+                Thread.Sleep(500);
+            }
+        }
+
+        private void backgroundWorker3_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            txtThread3.Text = e.ProgressPercentage.ToString();
+        }
+
+        private void btnStartThread4_Click(object sender, EventArgs e)
+        {
+            if (!backgroundWorker4.IsBusy)
+            {
+                // Start the asynchronous operation.
+                backgroundWorker4.RunWorkerAsync();
+            }
+        }
+
+        private void btnStopThread4_Click(object sender, EventArgs e)
+        {
+            if (backgroundWorker4.WorkerSupportsCancellation)
+            {
+                // Cancel the asynchronous operation.
+                backgroundWorker4.CancelAsync();
+            }
+        }
+
+        private void backgroundWorker4_DoWork(object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker worker = sender as BackgroundWorker;
+            int content;
+
+            while (!worker.CancellationPending)
+            {
+                content = Convert.ToInt32(txtThread4.Text);
+                content++;
+                worker.ReportProgress(content);
+                Thread.Sleep(500);
+            }
+        }
+
+        private void backgroundWorker4_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            txtThread4.Text = e.ProgressPercentage.ToString();
+        }
     }
 }
