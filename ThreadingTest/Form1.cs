@@ -54,5 +54,42 @@ namespace ThreadingTest
             // not exactly using a percentage here, but still works
             txtThread1.Text = e.ProgressPercentage.ToString();
         }
+
+        private void btnStartThread2_Click(object sender, EventArgs e)
+        {
+            if (!backgroundWorker2.IsBusy)
+            {
+                // Start the asynchronous operation.
+                backgroundWorker2.RunWorkerAsync();
+            }
+        }
+
+        private void btnStopThread2_Click(object sender, EventArgs e)
+        {
+            if (backgroundWorker2.WorkerSupportsCancellation)
+            {
+                // Cancel the asynchronous operation.
+                backgroundWorker2.CancelAsync();
+            }
+        }
+
+        private void backgroundWorker2_DoWork(object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker worker = sender as BackgroundWorker;
+            int content;
+
+            while (!worker.CancellationPending)
+            {
+                content = Convert.ToInt32(txtThread2.Text);
+                content++;
+                worker.ReportProgress(content);
+                Thread.Sleep(500);
+            }
+        }
+
+        private void backgroundWorker2_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            txtThread2.Text = e.ProgressPercentage.ToString();
+        }
     }
 }

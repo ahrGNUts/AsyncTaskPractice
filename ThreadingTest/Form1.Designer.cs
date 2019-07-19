@@ -41,6 +41,7 @@
             this.btnStopThread3 = new System.Windows.Forms.Button();
             this.btnStopThread4 = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.SuspendLayout();
             // 
             // txtThread1
@@ -93,6 +94,7 @@
             this.btnStartThread2.TabIndex = 5;
             this.btnStartThread2.Text = "Start Thread 2";
             this.btnStartThread2.UseVisualStyleBackColor = true;
+            this.btnStartThread2.Click += new System.EventHandler(this.btnStartThread2_Click);
             // 
             // btnStartThread3
             // 
@@ -130,6 +132,7 @@
             this.btnStopThread2.TabIndex = 9;
             this.btnStopThread2.Text = "Stop Thread 2";
             this.btnStopThread2.UseVisualStyleBackColor = true;
+            this.btnStopThread2.Click += new System.EventHandler(this.btnStopThread2_Click);
             // 
             // btnStopThread3
             // 
@@ -155,6 +158,13 @@
             this.backgroundWorker1.WorkerSupportsCancellation = true;
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged);
+            // 
+            // backgroundWorker2
+            // 
+            this.backgroundWorker2.WorkerReportsProgress = true;
+            this.backgroundWorker2.WorkerSupportsCancellation = true;
+            this.backgroundWorker2.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker2_DoWork);
+            this.backgroundWorker2.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker2_ProgressChanged);
             // 
             // frmMain
             // 
@@ -195,6 +205,7 @@
         private System.Windows.Forms.Button btnStopThread3;
         private System.Windows.Forms.Button btnStopThread4;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker2;
     }
 }
 
