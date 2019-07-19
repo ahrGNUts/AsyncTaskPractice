@@ -12,4 +12,5 @@ and restarted as needed.
 - <s>implement remaining button event handlers</s>
 - <s>generalize event handlers (since a lot is repeated)</s>
 - <s>helper method for getting object index</s>
-- more dynamic way of populating lists
+- <s>more dynamic way of populating lists</s>
+  - Better than it was, but maybe not ideal

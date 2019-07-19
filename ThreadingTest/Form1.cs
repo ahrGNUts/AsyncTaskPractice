@@ -13,33 +13,46 @@ namespace ThreadingTest
         private List<TextBox> _textAreas = new List<TextBox>();
         private List<BackgroundWorker> _bgWorkers = new List<BackgroundWorker>();
 
+        private const short CONTROL_MAX = 4;
+
         public frmMain()
         {
             InitializeComponent();
+            // collecting control refs into lists
+            PopulateButtonList("btnStartThread");
+            PopulateButtonList("btnStopThread");
+            InitTextList();
+            PopulateWorkerList();
+        }
+        
+        private void PopulateButtonList(string basename)
+        {
+            // populate button list based on basename of control
+            for (int i = 0; i < CONTROL_MAX; i++)
+            {
+                Control btn = Controls.Find(basename + (i + 1), false)[0];
 
-            // populate _startBtns
-            _startBtns.Add(btnStartThread1);
-            _startBtns.Add(btnStartThread2);
-            _startBtns.Add(btnStartThread3);
-            _startBtns.Add(btnStartThread4);
+                if (basename.Contains("StartThread"))
+                    _startBtns.Add((Button)btn);
+                else
+                    _stopBtns.Add((Button)btn);
+            }
+        }
 
-            // populate _stopBtns
-            _stopBtns.Add(btnStopThread1);
-            _stopBtns.Add(btnStopThread2);
-            _stopBtns.Add(btnStopThread3);
-            _stopBtns.Add(btnStopThread4);
+        private void InitTextList()
+        {
+            // populate textbox object refs, also init text to 0
+            for (int i = 0; i < CONTROL_MAX; i++)
+            {
+                Control txt = Controls.Find("txtThread" + (i + 1), false)[0];
+                txt.Text = "0";
+                _textAreas.Add((TextBox)txt);
+            }
+        }
 
-            // populate _textAreas
-            _textAreas.Add(txtThread1);
-            _textAreas.Add(txtThread2);
-            _textAreas.Add(txtThread3);
-            _textAreas.Add(txtThread4);
-
-            // init textarea text
-            foreach (var textarea in _textAreas)
-                textarea.Text = "0";
-
-            // populate _bgWorkers
+        private void PopulateWorkerList()
+        {
+            // can't seem to do this one with a loop due to lack of public object references
             _bgWorkers.Add(backgroundWorker1);
             _bgWorkers.Add(backgroundWorker2);
             _bgWorkers.Add(backgroundWorker3);
