@@ -11,5 +11,5 @@ and restarted as needed.
 ## TODO
 - <s>implement remaining button event handlers</s>
 - <s>generalize event handlers (since a lot is repeated)</s>
-- helper method for getting object index
+- <s>helper method for getting object index</s>
 - more dynamic way of populating lists
