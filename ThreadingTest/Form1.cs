@@ -3,7 +3,6 @@ using System.ComponentModel;
 using System.Threading;
 using System.Windows.Forms;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace ThreadingTest
 {
@@ -57,7 +56,7 @@ namespace ThreadingTest
             
             if (!_bgWorkers[idx].IsBusy)
             {
-                _bgWorkers[idx].RunWorkerAsync();
+                _bgWorkers[idx].RunWorkerAsync(idx);
             }
         }
 
@@ -76,81 +75,27 @@ namespace ThreadingTest
             }
         }
 
-        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
             BackgroundWorker worker = sender as BackgroundWorker;
+            int idx = Convert.ToInt16(e.Argument);
             int content;
 
             while (!worker.CancellationPending)
             {
-                content = Convert.ToInt32(txtThread1.Text);
+                content = Convert.ToInt32(_textAreas[idx].Text);
                 content++;
-                worker.ReportProgress(content);
+                worker.ReportProgress(content, e.Argument);
                 Thread.Sleep(500);
             }
         }
 
-        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
-        {
-            // not exactly using a percentage here, but still works
-            txtThread1.Text = e.ProgressPercentage.ToString();
-        }
-
-        private void backgroundWorker2_DoWork(object sender, DoWorkEventArgs e)
+        private void backgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             BackgroundWorker worker = sender as BackgroundWorker;
-            int content;
+            int idx = Convert.ToInt16(e.UserState);
 
-            while (!worker.CancellationPending)
-            {
-                content = Convert.ToInt32(txtThread2.Text);
-                content++;
-                worker.ReportProgress(content);
-                Thread.Sleep(500);
-            }
-        }
-
-        private void backgroundWorker2_ProgressChanged(object sender, ProgressChangedEventArgs e)
-        {
-            txtThread2.Text = e.ProgressPercentage.ToString();
-        }
-
-        private void backgroundWorker3_DoWork(object sender, DoWorkEventArgs e)
-        {
-            BackgroundWorker worker = sender as BackgroundWorker;
-            int content;
-
-            while (!worker.CancellationPending)
-            {
-                content = Convert.ToInt32(txtThread3.Text);
-                content++;
-                worker.ReportProgress(content);
-                Thread.Sleep(500);
-            }
-        }
-
-        private void backgroundWorker3_ProgressChanged(object sender, ProgressChangedEventArgs e)
-        {
-            txtThread3.Text = e.ProgressPercentage.ToString();
-        }
-
-        private void backgroundWorker4_DoWork(object sender, DoWorkEventArgs e)
-        {
-            BackgroundWorker worker = sender as BackgroundWorker;
-            int content;
-
-            while (!worker.CancellationPending)
-            {
-                content = Convert.ToInt32(txtThread4.Text);
-                content++;
-                worker.ReportProgress(content);
-                Thread.Sleep(500);
-            }
-        }
-
-        private void backgroundWorker4_ProgressChanged(object sender, ProgressChangedEventArgs e)
-        {
-            txtThread4.Text = e.ProgressPercentage.ToString();
+            _textAreas[idx].Text = e.ProgressPercentage.ToString();
         }
     }
 }

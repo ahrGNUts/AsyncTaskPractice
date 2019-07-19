@@ -10,4 +10,6 @@ and restarted as needed.
 
 ## TODO
 - <s>implement remaining button event handlers</s>
-- generalize event handlers (since a lot is repeated)
+- <s>generalize event handlers (since a lot is repeated)</s>
+- helper method for getting object index
+- more dynamic way of populating lists
