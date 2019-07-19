@@ -48,11 +48,8 @@ namespace ThreadingTest
 
         private void btnStartThread_Click(object sender, EventArgs e)
         {
-            // get button that triggered event
-            Button caller = (Button)sender;
-
-            // get index of button
-            int idx = _startBtns.FindIndex(btn => btn.Name.Equals(caller.Name));
+            // get master index for controls
+            int idx = GetObjectIndex(sender as Button);
             
             if (!_bgWorkers[idx].IsBusy)
             {
@@ -62,17 +59,22 @@ namespace ThreadingTest
 
         private void btnStopThread_Click(object sender, EventArgs e)
         {
-            // get button that triggered event
-            Button caller = (Button)sender;
-
-            // get index of button
-            int idx = _stopBtns.FindIndex(btn => btn.Name.Equals(caller.Name));
+            // get master index for controls
+            int idx = GetObjectIndex(sender as Button);
 
             if (_bgWorkers[idx].WorkerSupportsCancellation)
             {
                 // Cancel the asynchronous operation.
                 _bgWorkers[idx].CancelAsync();
             }
+        }
+
+        private int GetObjectIndex(Button caller)
+        {
+            if (caller.Name.Contains("StopThread"))
+                return _stopBtns.FindIndex(btn => btn.Name.Equals(caller.Name));
+
+            return _startBtns.FindIndex(btn => btn.Name.Equals(caller.Name));
         }
 
         private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
